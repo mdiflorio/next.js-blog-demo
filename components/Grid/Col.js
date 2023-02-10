@@ -8,10 +8,10 @@ const Col = ({cols, colsBp = {}, offset, first, last, gutter, className, childre
         const defaultClasses = columnClassList.default[cols - 1];
 
         // Get list of breakpoints in colsBp
-        const breakpoints = Object.keys(colsBp)
+        const breakpoints = Object.entries(colsBp)
 
         // Grab column class for each breakpoint
-        const classesPerBp = breakpoints.map(bp => columnClassList[bp][colsBp[bp] - 1]).join(" ")
+        const classesPerBp = breakpoints.map((bp, value) => columnClassList[bp][value - 1]).join(" ")
 
         return `${defaultClasses} ${classesPerBp}`
     }
