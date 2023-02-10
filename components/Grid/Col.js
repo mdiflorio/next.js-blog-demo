@@ -5,7 +5,7 @@ import {columnClassList} from "@/components/Grid/constants";
 const Col = ({cols, colsBp = {}, offset, first, last, gutter, className, children}) => {
     const getColumnClasses = () => {
         // Grab column classes for all screen sizes
-        const defaultClasses = columnClassList.default[cols - 1];
+        const defaultClass = columnClassList.default[cols - 1];
 
         // Get list of breakpoints in colsBp
         const breakpoints = Object.entries(colsBp)
@@ -13,7 +13,7 @@ const Col = ({cols, colsBp = {}, offset, first, last, gutter, className, childre
         // Grab column class for each breakpoint
         const classesPerBp = breakpoints.map((bp, value) => columnClassList[bp][value - 1]).join(" ")
 
-        return `${defaultClasses} ${classesPerBp}`
+        return `${defaultClass} ${classesPerBp}`
     }
 
     const columnClasses = getColumnClasses();
